@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button,List } from 'antd';
 import store from '../../stores/index';
 import {CHANGE_INPUT, ADD_ITEM, DELETE_ITEM} from '../../stores/actionTypes'
-import { changeInputAction, addItemAction, deleteItemAction ,getListAction, getTodoList} from '../../stores/actionCreators';
+import { changeInputAction, addItemAction, deleteItemAction ,getListAction, getTodoList,getMyListAction} from '../../stores/actionCreators';
 import TodoListUI from '../TodoListUI/index';
 import axios from 'axios';
 
@@ -21,8 +21,11 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
-    const action = getTodoList();
+    const action = getMyListAction();
     store.dispatch(action);
+    console.log(action)
+    // const action = getTodoList();
+    // store.dispatch(action);
   // axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList').then((res) => {
   //   const data = res.data;
   //   const action = getListAction(data);
